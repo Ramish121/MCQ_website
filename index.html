@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramish CBT Portal</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 h-screen overflow-hidden flex items-center justify-center selection:bg-blue-200">
+
+    <!-- INTRO PAGE CONTAINER -->
+    <div id="intro-page" class="w-full max-w-6xl h-[90vh] mx-auto flex flex-col md:flex-row gap-6 p-4 md:p-6 fade-in">
+        
+        <!-- LEFT SECTION: 📚 MY LIBRARY (60%) -->
+        <aside class="w-full md:w-3/5 bg-sky-50 rounded-2xl p-6 border border-sky-100 flex flex-col shadow-sm">
+            <div class="mb-6 flex-shrink-0">
+                <h1 class="text-2xl font-black text-slate-800 tracking-tight flex items-center gap-2 mb-4">
+                    📚 My Library
+                </h1>
+                <!-- Search Bar -->
+                <div class="relative">
+                    <input type="text" id="search-bar" placeholder="Search chapters or folders..." 
+                        class="w-full pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-blue-400 outline-none transition-all shadow-sm">
+                    <span class="absolute left-4 top-3 text-slate-400 text-lg">🔍</span>
+                </div>
+            </div>
+
+            <!-- Folder/File List Grid -->
+            <div id="library-content" class="flex-1 overflow-y-auto custom-scroll grid grid-cols-1 sm:grid-cols-2 gap-3 content-start pr-2">
+                <!-- Example Folder -->
+                <div class="folder-card bg-white p-4 rounded-xl border border-slate-200 cursor-pointer hover:border-blue-400 hover:shadow-md transition-all flex items-center gap-3">
+                    <span class="text-3xl">📁</span>
+                    <div>
+                        <p class="font-bold text-slate-700">Psychology</p>
+                        <p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">6 Chapters</p>
+                    </div>
+                </div>
+                <!-- Example Folder -->
+                <div class="folder-card bg-white p-4 rounded-xl border border-slate-200 cursor-pointer hover:border-blue-400 hover:shadow-md transition-all flex items-center gap-3">
+                    <span class="text-3xl">📁</span>
+                    <div>
+                        <p class="font-bold text-slate-700">General Knowledge</p>
+                        <p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">12 Topics</p>
+                    </div>
+                </div>
+                <!-- Example Folder -->
+                <div class="folder-card bg-white p-4 rounded-xl border border-slate-200 cursor-pointer hover:border-blue-400 hover:shadow-md transition-all flex items-center gap-3">
+                    <span class="text-3xl">📁</span>
+                    <div>
+                        <p class="font-bold text-slate-700">Research Methodology</p>
+                        <p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">4 Chapters</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- RIGHT SECTION: ⚙️ TEST CONTROL PANEL (40%) -->
+        <main class="w-full md:w-2/5 bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-md flex flex-col justify-between">
+            
+            <div id="control-panel-content">
+                <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-[10px] font-black uppercase tracking-widest rounded-lg mb-4">
+                    Control Panel
+                </div>
+                
+                <!-- Test Identity -->
+                <h2 id="selected-test-name" class="text-3xl font-black text-slate-800 leading-tight mb-2">
+                    Select a Test
+                </h2>
+                <p id="selected-test-count" class="text-sm font-semibold text-slate-500 mb-8 pb-4 border-b border-slate-100">
+                    Choose a chapter from your library to start.
+                </p>
+
+                <!-- Settings (Hidden until a test is selected) -->
+                <div id="test-settings" class="space-y-6 opacity-50 pointer-events-none transition-opacity duration-300">
+                    
+                    <!-- Adjustable Timer -->
+                    <div>
+                        <label class="block text-xs font-black text-slate-700 uppercase tracking-wide mb-2">
+                            ⏱️ Set Total Time (Minutes)
+                        </label>
+                        <input type="number" id="timer-input" value="90" min="5" max="300"
+                            class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 font-bold focus:ring-2 focus:ring-blue-400 outline-none transition-all">
+                    </div>
+
+                    <!-- Shuffle Mode -->
+                    <div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-200">
+                        <div>
+                            <p class="font-bold text-sm text-slate-800">🔀 Shuffle Questions</p>
+                            <p class="text-[10px] text-slate-500 font-medium">Randomize question order</p>
+                        </div>
+                        <input type="checkbox" id="shuffle-toggle" class="w-5 h-5 accent-blue-600 cursor-pointer">
+                    </div>
+
+                    <!-- CBT Instructions block -->
+                    <div class="p-4 bg-yellow-50/50 rounded-xl border border-yellow-100">
+                        <p class="text-xs font-bold text-yellow-800 mb-2 uppercase tracking-wide">📜 Instructions</p>
+                        <ul class="text-[11px] text-yellow-700 space-y-1 font-medium">
+                            <li>• +5 Marks for Correct Answer</li>
+                            <li>• -1 Mark for Incorrect Answer</li>
+                            <li>• Unanswered questions receive 0 marks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Start Button -->
+            <button id="start-btn" disabled
+                class="w-full mt-8 bg-slate-200 text-slate-400 font-black py-4 rounded-xl text-lg tracking-wide transition-all duration-300 cursor-not-allowed">
+                Select Test First
+            </button>
+            
+        </main>
+    </div>
+
+    <!-- Script Link -->
+    <script src="script.js"></script>
+</body>
+</html>
