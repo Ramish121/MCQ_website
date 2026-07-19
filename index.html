@@ -28,31 +28,9 @@
             </div>
 
             <!-- Folder/File List Grid -->
+            <!-- Folder/File List Grid -->
             <div id="library-content" class="flex-1 overflow-y-auto custom-scroll grid grid-cols-1 sm:grid-cols-2 gap-3 content-start pr-2">
-                <!-- Example Folder -->
-                <div class="folder-card bg-white p-4 rounded-xl border border-slate-200 cursor-pointer hover:border-blue-400 hover:shadow-md transition-all flex items-center gap-3">
-                    <span class="text-3xl">📁</span>
-                    <div>
-                        <p class="font-bold text-slate-700">Psychology</p>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">6 Chapters</p>
-                    </div>
-                </div>
-                <!-- Example Folder -->
-                <div class="folder-card bg-white p-4 rounded-xl border border-slate-200 cursor-pointer hover:border-blue-400 hover:shadow-md transition-all flex items-center gap-3">
-                    <span class="text-3xl">📁</span>
-                    <div>
-                        <p class="font-bold text-slate-700">General Knowledge</p>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">12 Topics</p>
-                    </div>
-                </div>
-                <!-- Example Folder -->
-                <div class="folder-card bg-white p-4 rounded-xl border border-slate-200 cursor-pointer hover:border-blue-400 hover:shadow-md transition-all flex items-center gap-3">
-                    <span class="text-3xl">📁</span>
-                    <div>
-                        <p class="font-bold text-slate-700">Research Methodology</p>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">4 Chapters</p>
-                    </div>
-                </div>
+                <!-- Data GitHub se yahan load hoga -->
             </div>
         </aside>
 
@@ -116,5 +94,86 @@
 
     <!-- Script Link -->
     <script src="script.js"></script>
+    <!-- Script Link -->
+    <script src="script.js"></script>
+
+    <!-- Naya GitHub Fetch Script -->
+    <script>
+        const githubUser = "Ramish121";
+        const repoName = "MCQ_website";
+        const indexUrl = `https://raw.githubusercontent.com/${githubUser}/${repoName}/main/Questions/master_index.json`;
+
+        let activeTest = null; 
+
+        async function loadMasterIndex() {
+            const grid = document.getElementById('library-content');
+            grid.innerHTML = '<p class="text-center text-slate-500 col-span-2 font-semibold">Fetching tests from database...</p>';
+
+            try {
+                const response = await fetch(indexUrl);
+                if (!response.ok) throw new Error("Index file fetch fail");
+                const data = await response.json();
+                
+                grid.innerHTML = ''; 
+
+                for (const subject in data) {
+                    const tests = data[subject];
+                    
+                    tests.forEach(test => {
+                        const card = document.createElement('div');
+                        card.className = "folder-card bg-white p-4 rounded-xl border border-slate-200 cursor-pointer hover:border-blue-400 hover:shadow-md transition-all flex items-center gap-3";
+                        card.innerHTML = `
+                            <span class="text-3xl">📄</span>
+                            <div>
+                                <p class="font-bold text-slate-700 text-sm leading-tight">${test.testName}</p>
+                                <p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider mt-1">${subject}</p>
+                            </div>
+                        `;
+
+                        // Jab Card par click ho tab Right Panel activate karna
+                        card.addEventListener('click', () => {
+                            // Purane selected cards se rang hatana
+                            document.querySelectorAll('.folder-card').forEach(c => c.classList.remove('border-blue-500', 'bg-blue-50'));
+                            card.classList.add('border-blue-500', 'bg-blue-50');
+
+                            // Right Panel ka text update karna
+                            document.getElementById('selected-test-name').innerText = test.testName;
+                            document.getElementById('selected-test-count').innerText = `Subject: ${subject}`;
+                            document.getElementById('timer-input').value = test.timeLimit;
+                            
+                            // Settings aur Start Button ko On karna
+                            document.getElementById('test-settings').classList.remove('opacity-50', 'pointer-events-none');
+                            const startBtn = document.getElementById('start-btn');
+                            startBtn.removeAttribute('disabled');
+                            startBtn.className = "w-full mt-8 bg-blue-600 text-white font-black py-4 rounded-xl text-lg tracking-wide hover:bg-blue-700 hover:shadow-lg transition-all duration-300 cursor-pointer";
+                            startBtn.innerText = "START TEST 🚀";
+
+                            activeTest = test;
+                        });
+
+                        grid.appendChild(card);
+                    });
+                }
+            } catch (error) {
+                console.error(error);
+                grid.innerHTML = '<p class="text-red-500 text-sm col-span-2">Error! Please check your internet or GitHub Link.</p>';
+            }
+        }
+
+        // Jab Start Button dabaayein tab test.html par bhejna
+        document.getElementById('start-btn').addEventListener('click', () => {
+            if (activeTest) {
+                const finalTime = document.getElementById('timer-input').value;
+                localStorage.setItem('cbt_testName', activeTest.testName);
+                localStorage.setItem('cbt_filePath', activeTest.filePath);
+                localStorage.setItem('cbt_timeLimit', finalTime);
+                window.location.href = 'test.html';
+            }
+        });
+
+        loadMasterIndex();
+    </script>
+</body>
+</html>
 </body>
 </html>
