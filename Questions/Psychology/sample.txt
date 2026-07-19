@@ -1,0 +1,79 @@
+1. <Q>Psychology is primarily defined as the scientific study of:</Q>
+<A>
+(a) Soul
+(b) Consciousness only
+*(c) Behavior and mental processes
+(d) Dreams
+</A>
+
+2. <Q>Which approach in psychology emphasizes unconscious motives?</Q>
+<A>
+(a) Humanistic
+(b) Cognitive
+(c) Behavioristic
+*(d) Psychodynamic
+</A>
+
+3. <Q>The basic structural and functional unit of the nervous system is:</Q>
+<A>
+(a) Axon
+*(b) Neuron
+(c) Synapse
+(d) Cortex
+</A>
+
+4. <Q>The endocrine system mainly controls:</Q>
+<A>
+(a) Reflexes
+*(b) Hormones
+(c) Respiration only
+(d) Digestion only
+</A>
+
+5. <Q>Gestalt psychology is mainly related to:</Q>
+<A>
+(a) Learning
+(b) Motivation
+*(c) Perception
+(d) Intelligence
+</A>
+
+6. <Q>The minimum stimulus intensity required to detect a stimulus is called:</Q>
+<A>
+(a) Difference threshold
+*(b) Absolute threshold
+(c) Sensory adaptation
+(d) Weber fraction
+</A>
+
+7. <Q>Classical conditioning was first demonstrated by:</Q>
+<A>
+(a) Skinner
+(b) Tolman
+*(c) Pavlov
+(d) Bandura
+</A>
+
+8. <Q>Learning through observation is known as:</Q>
+<A>
+(a) Latent learning
+(b) Trial and error learning
+*(c) Observational learning
+(d) Insight learning
+</A>
+
+9. <Q>According to Atkinson’s model, memory involves:</Q>
+<A>
+(a) Motivation and emotion
+*(b) Encoding, storage, and retrieval
+(c) Learning and reinforcement
+(d) Perception and reasoning
+</A>
+
+10. <Q>Ebbinghaus is famous for his work on:</Q>
+<A>
+(a) Intelligence
+(b) Motivation
+*(c) Forgetting curve
+(d) Personality
+</A>
