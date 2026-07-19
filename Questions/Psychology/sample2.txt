@@ -1,0 +1,39 @@
+6. <Q>The minimum stimulus intensity required to detect a stimulus is called:</Q>
+<A>
+(a) Difference threshold
+*(b) Absolute threshold
+(c) Sensory adaptation
+(d) Weber fraction
+</A>
+
+7. <Q>Classical conditioning was first demonstrated by:</Q>
+<A>
+(a) Skinner
+(b) Tolman
+*(c) Pavlov
+(d) Bandura
+</A>
+
+8. <Q>Learning through observation is known as:</Q>
+<A>
+(a) Latent learning
+(b) Trial and error learning
+*(c) Observational learning
+(d) Insight learning
+</A>
+
+9. <Q>According to Atkinson’s model, memory involves:</Q>
+<A>
+(a) Motivation and emotion
+*(b) Encoding, storage, and retrieval
+(c) Learning and reinforcement
+(d) Perception and reasoning
+</A>
+
+10. <Q>Ebbinghaus is famous for his work on:</Q>
+<A>
+(a) Intelligence
+(b) Motivation
+*(c) Forgetting curve
+(d) Personality
+</A>
