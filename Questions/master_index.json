@@ -1,0 +1,14 @@
+{
+  "General Psychology": [
+    {
+      "testName": "Mock Test 1: Basics",
+      "filePath": "Psychology/sample.txt",
+      "timeLimit": 90
+    },
+    {
+      "testName": "Mock Test 2: Advanced",
+      "filePath": "Psychology/sample2.txt",
+      "timeLimit": 60
+    }
+  ]
+}
